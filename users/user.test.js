@@ -25,7 +25,7 @@ import { seedData } from "../db/seed-data.js";
     const response = await request(app).get("/api/users");
     expect(response.body).toEqual(expect.any(Object)); //assert that the response body is an object
     expect(response.body.success).toBe(true);//assert that response body.success is true
-    //expect(response.body.payload). //assert that response body.payload is an array
+    expect(Array.isArray(response.body.payload)).toBe(true); //assert that response body.payload is an array
  });
 
 // then within the test:
