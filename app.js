@@ -2,6 +2,9 @@ import express from "express";
 import logger from "morgan";
 import usersRouter from "./users/users.router.js";
 
+const request = require("supertest");
+const express = require("express");
+
 const app = express();
 
 /**
