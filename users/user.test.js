@@ -26,7 +26,14 @@ import { seedData } from "../db/seed-data.js";
     expect(response.body).toEqual(expect.any(Object)); //assert that the response body is an object
     expect(response.body.success).toBe(true);//assert that response body.success is true
     expect(Array.isArray(response.body.payload)).toBe(true); //assert that response body.payload is an array
- });
+    response.body.payload.forEach((user) => {
+        expect(user.id).toEqual(expect.any(Number));
+        expect(user.username).toEqual(expect.any(String));
+    })
+    expect(response.statusCode).toBe(200);
+    expect(response.headers["content-type"]).toMatch(/json/);
+});
+
 
 // then within the test:
 //    ARRANGE:
